@@ -497,7 +497,23 @@ public class AtaBO {
 		int hora = DateUtils.getHour(data);
 		int minuto = DateUtils.getMinute(data);
 		String resultado = "Ao";
-		String[] meses = {"janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"};
+		
+		
+		List<String> meses = new ArrayList<String>();
+
+		meses.add("janeiro");
+		meses.add("fevereiro");
+		meses.add("março");
+		meses.add("abril");
+		meses.add("maio");
+		meses.add("junho");
+		meses.add("julho");
+		meses.add("agosto");
+		meses.add("setembro");
+		meses.add("outubro");
+		meses.add("novembro");
+		meses.add("dezembro");
+		
 		
 		if(dia > 1){
 			resultado += "s ";

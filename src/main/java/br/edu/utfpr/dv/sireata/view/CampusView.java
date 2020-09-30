@@ -10,11 +10,11 @@ import com.vaadin.ui.UI;
 import br.edu.utfpr.dv.sireata.bo.CampusBO;
 import br.edu.utfpr.dv.sireata.model.Campus;
 import br.edu.utfpr.dv.sireata.window.EditarCampusWindow;
-
-public class CampusView extends ListView {
+import br.edu.utfpr.dv.sireata.view.strategy;
+public class CampusView extends ListView implements CrudView <CampusBO>{
 	
 	public static final String NAME = "campus";
-	
+	CrudView crud = new CrudView();
 	public CampusView(){
 		this.setFiltrosVisiveis(false);
 		this.setBotaoExcluirVisivel(false);

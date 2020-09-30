@@ -12,13 +12,13 @@ import br.edu.utfpr.dv.sireata.component.ComboCampus;
 import br.edu.utfpr.dv.sireata.component.ComboCampus.TipoFiltro;
 import br.edu.utfpr.dv.sireata.model.Departamento;
 import br.edu.utfpr.dv.sireata.window.EditarDepartamentoWindow;
-
-public class DepartamentoView extends ListView {
+import br.edu.utfpr.dv.sireata.view.strategy;
+public class DepartamentoView extends ListView implements CrudView<DepartamentoBO> {
 
 	public static final String NAME = "departamentos";
 	
 	private final ComboCampus cbCampus;
-	
+	CrudView crud = new CrudView();
 	public DepartamentoView(){
 		this.cbCampus = new ComboCampus(TipoFiltro.NENHUM);
 		
@@ -40,7 +40,7 @@ public class DepartamentoView extends ListView {
 			
 			for(Departamento d : list){
 				Object itemId = this.getGrid().addRow(d.getNome(), (d.isAtivo() ? "Sim" : "Não"));
-				this.adicionarGridId(itemId, d.getIdDepartamento());
+				crud.adicionarGridId(itemId, d.getIdDepartamento());
 			}
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);

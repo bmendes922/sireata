@@ -28,8 +28,10 @@ import br.edu.utfpr.dv.sireata.component.ComboOrgao;
 import br.edu.utfpr.dv.sireata.model.Ata;
 import br.edu.utfpr.dv.sireata.util.DateUtils;
 import br.edu.utfpr.dv.sireata.window.EditarAtaWindow;
+import br.edu.utfpr.dv.sireata.view.strategy;
 
-public class AtaView extends ListView {
+
+public class AtaView extends ListView implements CrudView<AtaBO> {
 	
 	public static final String NAME = "atas";
 	
@@ -42,6 +44,8 @@ public class AtaView extends ListView {
 	private final Button btExcluir;
 	
 	private int tipo;
+
+	CrudView crud = new CrudView();
 	
 	public AtaView(){
 		this.cbCampus = new ComboCampus(TipoFiltro.NENHUM);
@@ -183,6 +187,8 @@ public class AtaView extends ListView {
 	@Override
 	public void adicionar() {
 		// TODO Auto-generated method stub
+
+		crud.adicionar(adicionarGridId);
 		
 	}
 
@@ -236,11 +242,14 @@ public class AtaView extends ListView {
 			
 			Notification.show("Excluir Ata", e.getMessage(), Notification.Type.ERROR_MESSAGE);
 		}
+
 	}
 
 	@Override
 	public void excluir(Object id) {
-		// TODO Auto-generated method stub
+		
+		crud.excluir(id);
+		atualizarGrid();
 		
 	}
 
@@ -318,7 +327,12 @@ public class AtaView extends ListView {
 			this.btExcluir.setVisible(false);
 		}
 		
-		this.atualizarGrid();
+	
+
+				crud.atualizarGrid(event);
+			
+	
+		
 	}
 	
 }

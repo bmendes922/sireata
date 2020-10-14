@@ -33,7 +33,7 @@ public class CampusView extends ListView implements CrudView <CampusBO>{
 			
 			for(Campus c : list){
 				Object itemId = this.getGrid().addRow(c.getNome(), (c.isAtivo() ? "Sim" : "Não"));
-				this.adicionarGridId(itemId, c.getIdCampus());
+				crud.adicionarGridId(itemId, c.getIdCampus());
 			}
 		}catch(Exception e){
 			Logger.getGlobal().log(Level.SEVERE, e.getMessage(), e);
@@ -45,6 +45,7 @@ public class CampusView extends ListView implements CrudView <CampusBO>{
 	@Override
 	public void adicionar() {
 		UI.getCurrent().addWindow(new EditarCampusWindow(null, this));
+		
 	}
 
 	@Override

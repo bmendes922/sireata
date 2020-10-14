@@ -14,8 +14,9 @@ import com.vaadin.ui.VerticalLayout;
 import br.edu.utfpr.dv.sireata.bo.UsuarioBO;
 import br.edu.utfpr.dv.sireata.model.Usuario;
 import br.edu.utfpr.dv.sireata.window.EditarUsuarioWindow;
+import br.edu.utfpr.dv.sireata.view.strategy;
 
-public class UsuarioView extends ListView {
+public class UsuarioView extends ListView implements CrudView<ListView> {
 	
 	public static final String NAME = "usuarios";
 	
@@ -63,8 +64,8 @@ public class UsuarioView extends ListView {
     }
 
 	@Override
-	public void adicionar() {
-		UI.getCurrent().addWindow(new EditarUsuarioWindow(null, this));
+	public int adicionar(int id) throws Exception{
+		UI.getCurrent().addWindow(new EditarUsuarioWindow(null, id));
 	}
 
 	@Override
@@ -82,7 +83,7 @@ public class UsuarioView extends ListView {
 	}
 
 	@Override
-	public void excluir(Object id) {
+	public void excluir(Object id)throws Exception{
 		// TODO Auto-generated method stub
 		
 	}

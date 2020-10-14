@@ -31,7 +31,7 @@ import br.edu.utfpr.dv.sireata.window.EditarAtaWindow;
 import br.edu.utfpr.dv.sireata.view.strategy;
 
 
-public class AtaView extends ListView implements CrudView<AtaBO> {
+public class AtaView extends ListView implements CrudView<AtaView> {
 	
 	public static final String NAME = "atas";
 	
@@ -185,7 +185,7 @@ public class AtaView extends ListView implements CrudView<AtaBO> {
 	}
 
 	@Override
-	public void adicionar() {
+	public void adicionar(int adicionarGridId) throws Exception{
 		// TODO Auto-generated method stub
 
 		crud.adicionar(adicionarGridId);
@@ -206,9 +206,9 @@ public class AtaView extends ListView implements CrudView<AtaBO> {
 		}
 	}
 	
-	private void excluir() {
+	private void excluir(Object idAta) throws Exception{
 		try{
-			Object idAta = this.getIdSelecionado();
+			 idAta = this.getIdSelecionado();
 			
 			if(idAta == null){
 	    		Notification.show("Excluir Ata", "Selecione a ata para excluir.", Notification.Type.WARNING_MESSAGE);
@@ -246,7 +246,7 @@ public class AtaView extends ListView implements CrudView<AtaBO> {
 	}
 
 	@Override
-	public void excluir(Object id) {
+	public void excluir(Object id) throws Exception {
 		
 		crud.excluir(id);
 		atualizarGrid();
@@ -306,7 +306,7 @@ public class AtaView extends ListView implements CrudView<AtaBO> {
 	}
 
 	@Override
-	public void enter(ViewChangeEvent event){
+	public void enter(ViewChangeEvent event)throws Exception{
 		super.enter(event);
 		
 		if(event.getParameters() != null){

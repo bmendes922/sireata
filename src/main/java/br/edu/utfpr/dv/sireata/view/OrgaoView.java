@@ -15,8 +15,9 @@ import br.edu.utfpr.dv.sireata.component.ComboCampus.TipoFiltro;
 import br.edu.utfpr.dv.sireata.component.ComboDepartamento;
 import br.edu.utfpr.dv.sireata.model.Orgao;
 import br.edu.utfpr.dv.sireata.window.EditarOrgaoWindow;
+import br.edu.utfpr.dv.sireata.view.strategy;
 
-public class OrgaoView extends ListView {
+public class OrgaoView extends ListView implements CrudView<OrgaoView>  {
 	
 	public static final String NAME = "orgaos";
 	
@@ -66,8 +67,8 @@ public class OrgaoView extends ListView {
 	}
 
 	@Override
-	public void adicionar() {
-		Orgao orgao = new Orgao();
+	public int  adicionar(Orgao orgao)throws Exception {
+		 orgao = new Orgao();
 		
 		orgao.setDepartamento(this.cbDepartamento.getDepartamento());
 		
@@ -89,7 +90,7 @@ public class OrgaoView extends ListView {
 	}
 
 	@Override
-	public void excluir(Object id) {
+	public void excluir(Object id)throws Exception {
 		// TODO Auto-generated method stub
 		
 	}

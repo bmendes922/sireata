@@ -24,8 +24,9 @@ import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Grid.SelectionMode;
 import com.vaadin.ui.Grid.SingleSelectionModel;
+import br.edu.utfpr.dv.sireata.view.strategy;
 
-public abstract class ListView extends BasicView {
+public abstract class ListView extends BasicView implements CrudView<ListView> {
 
     private Grid grid;
     private final Button btAdicionar;
@@ -249,8 +250,8 @@ public abstract class ListView extends BasicView {
     	}
     }
     
-    private void excluir(){
-		Object value = this.getIdSelecionado();
+    private void excluir(Object value)throws Exception{
+		 value = this.getIdSelecionado();
     	
     	if(value == null){
     		Notification.show("Selecionar Registro", "Selecione o registro para exclusão.", Notification.Type.WARNING_MESSAGE);
@@ -274,7 +275,7 @@ public abstract class ListView extends BasicView {
     public abstract void filtrar() throws Exception;
 
 	@Override
-	public void enter(ViewChangeEvent event){
+	public void enter(ViewChangeEvent event)throws Exception{
 		this.atualizarGrid();
 	}
 	

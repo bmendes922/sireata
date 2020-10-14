@@ -11,7 +11,7 @@ import br.edu.utfpr.dv.sireata.bo.CampusBO;
 import br.edu.utfpr.dv.sireata.model.Campus;
 import br.edu.utfpr.dv.sireata.window.EditarCampusWindow;
 import br.edu.utfpr.dv.sireata.view.strategy;
-public class CampusView extends ListView implements CrudView <CampusBO>{
+public class CampusView extends ListView implements CrudView <CampusView>{
 	
 	public static final String NAME = "campus";
 	CrudView crud = new CrudView();
@@ -43,8 +43,8 @@ public class CampusView extends ListView implements CrudView <CampusBO>{
 	}
 
 	@Override
-	public void adicionar() {
-		UI.getCurrent().addWindow(new EditarCampusWindow(null, this));
+	public int adicionar(int id) throws Exception{
+		UI.getCurrent().addWindow(new EditarCampusWindow(id, this));
 		
 	}
 
@@ -63,7 +63,7 @@ public class CampusView extends ListView implements CrudView <CampusBO>{
 	}
 
 	@Override
-	public void excluir(Object id) {
+	public void excluir(Object id)throws Exception{
 		// TODO Auto-generated method stub
 		
 	}

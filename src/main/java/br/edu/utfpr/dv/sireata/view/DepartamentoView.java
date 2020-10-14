@@ -13,7 +13,7 @@ import br.edu.utfpr.dv.sireata.component.ComboCampus.TipoFiltro;
 import br.edu.utfpr.dv.sireata.model.Departamento;
 import br.edu.utfpr.dv.sireata.window.EditarDepartamentoWindow;
 import br.edu.utfpr.dv.sireata.view.strategy;
-public class DepartamentoView extends ListView implements CrudView<DepartamentoBO> {
+public class DepartamentoView extends ListView implements CrudView<DepartamentoView> {
 
 	public static final String NAME = "departamentos";
 	
@@ -50,11 +50,11 @@ public class DepartamentoView extends ListView implements CrudView<DepartamentoB
 	}
 
 	@Override
-	public void adicionar() {
+	public int adicionar(int id )throws Exception {
 		Departamento departamento = new Departamento();
 		
 		departamento.setCampus(this.cbCampus.getCampus());
-		
+		departamento.setIdDepartamento(this.IdCampus.getCampus());
 		UI.getCurrent().addWindow(new EditarDepartamentoWindow(departamento, this));
 	}
 
@@ -73,7 +73,7 @@ public class DepartamentoView extends ListView implements CrudView<DepartamentoB
 	}
 
 	@Override
-	public void excluir(Object id) {
+	public void excluir(Object id)throws Exception {
 		// TODO Auto-generated method stub
 		
 	}

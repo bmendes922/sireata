@@ -16,7 +16,7 @@ import br.edu.utfpr.dv.sireata.model.Usuario;
 import br.edu.utfpr.dv.sireata.window.EditarUsuarioWindow;
 import br.edu.utfpr.dv.sireata.view.strategy;
 
-public class UsuarioView extends ListView implements CrudView<ListView> {
+public class UsuarioView extends ListView implements CrudView<UsuarioView> {
 	
 	public static final String NAME = "usuarios";
 	

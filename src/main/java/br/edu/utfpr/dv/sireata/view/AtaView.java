@@ -185,7 +185,7 @@ public class AtaView extends ListView implements CrudView<AtaView> {
 	}
 
 	@Override
-	public void adicionar(int adicionarGridId) throws Exception{
+	public int adicionar(int adicionarGridId) throws Exception{
 		// TODO Auto-generated method stub
 
 		crud.adicionar(adicionarGridId);
@@ -206,7 +206,7 @@ public class AtaView extends ListView implements CrudView<AtaView> {
 		}
 	}
 	
-	private void excluir(Object idAta) throws Exception{
+	private int excluir(Object idAta) throws Exception{
 		try{
 			 idAta = this.getIdSelecionado();
 			
